@@ -155,7 +155,6 @@ const SelectArrayInput: FunctionComponent<SelectArrayInputProps> = props => {
         options,
         optionText,
         optionValue,
-        optionDisable,
         parse,
         resource,
         source,
@@ -174,10 +173,9 @@ const SelectArrayInput: FunctionComponent<SelectArrayInputProps> = props => {
         }
     }, []);
 
-    const { getChoiceText, getChoiceValue, getChoiceDisable } = useChoices({
+    const { getChoiceText, getChoiceValue } = useChoices({
         optionText,
         optionValue,
-        optionDisable,
         translateChoice,
     });
     const {
@@ -206,7 +204,7 @@ const SelectArrayInput: FunctionComponent<SelectArrayInputProps> = props => {
                 <MenuItem
                     key={getChoiceValue(choice)}
                     value={getChoiceValue(choice)}
-                    disabled={getChoiceDisable(choice)}
+                    disabled={choice.disabled}
                 >
                     {renderMenuItemOption(choice)}
                 </MenuItem>
@@ -324,7 +322,6 @@ SelectArrayInput.defaultProps = {
     options: {},
     optionText: 'name',
     optionValue: 'id',
-    optionDisable: 'disabled',
     translateChoice: true,
 };
 

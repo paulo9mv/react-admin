@@ -29,7 +29,6 @@ export interface ChoicesProps {
 export interface UseChoicesOptions {
     optionValue?: string;
     optionText?: OptionTextElement | OptionText | string;
-    optionDisable?: string;
     translateChoice?: boolean;
 }
 
@@ -47,7 +46,6 @@ export interface UseChoicesOptions {
 const useChoices = ({
     optionText = 'name',
     optionValue = 'id',
-    optionDisable = 'disabled',
     translateChoice = true,
 }: UseChoicesOptions) => {
     const translate = useTranslate();
@@ -75,14 +73,9 @@ const useChoices = ({
         optionValue,
     ]);
 
-    const getChoiceDisable = useCallback(choice => get(choice, optionDisable), [
-        optionDisable,
-    ]);
-
     return {
         getChoiceText,
         getChoiceValue,
-        getChoiceDisable,
     };
 };
 

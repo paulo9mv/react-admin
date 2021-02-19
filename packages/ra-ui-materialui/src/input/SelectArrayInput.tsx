@@ -312,7 +312,6 @@ SelectArrayInput.propTypes = {
         PropTypes.element,
     ]).isRequired,
     optionValue: PropTypes.string.isRequired,
-    optionDisable: PropTypes.string,
     resource: PropTypes.string,
     source: PropTypes.string,
     translateChoice: PropTypes.bool,
